@@ -1,0 +1,67 @@
+.container {
+	display: flex;
+	gap: var(--gap-l);
+	background-color: var(--white);
+	padding: 24px;
+	border-radius: var(--border-radius);
+	font-size: 14px;
+	line-height: 20px;
+	height: 210px;
+	cursor: pointer;
+}
+
+.container:hover {
+	opacity: 0.8;
+}
+
+.image {
+	width: 100px;
+	height: 120px;
+	border-radius: var(--border-radius);
+}
+
+.details {
+	display: grid;
+	gap: var(--gap-s);
+	grid-template-columns: 90px 1fr;
+	grid-template-areas:
+		'title title'
+		'genreKey genreValue'
+		'yearKey yearValue'
+		'descriptionKey descriptionValue';
+}
+
+.title {
+	grid-area: title;
+}
+
+.genreKey,
+.descriptionKey,
+.yearKey {
+	color: var(--text-color-secondary);
+}
+
+.genreKey {
+	grid-area: genreKey;
+}
+.genreValue {
+	grid-area: genreValue;
+	text-transform: capitalize;
+}
+.yearKey {
+	grid-area: yearKey;
+}
+.yearValue {
+	grid-area: yearValue;
+}
+.descriptionKey {
+	grid-area: descriptionKey;
+}
+.descriptionValue {
+	grid-area: descriptionValue;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
