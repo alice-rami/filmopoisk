@@ -1,0 +1,29 @@
+.container {
+	z-index: 2;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.modalClose {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	height: 29px;
+	width: 29px;
+	text-indent: 40px;
+	overflow: hidden;
+	background-color: transparent;
+}
+
+.modalClose::after {
+	position: absolute;
+	text-indent: 0;
+	content: url(../../images/close.svg);
+	background-color: white;
+	top: 0;
+	right: 0;
+	z-index: 4;
+	cursor: pointer;
+}

@@ -1,0 +1,14 @@
+.container {
+	width: 344px;
+	border-radius: var(--border-radius);
+	background-color: var(--white);
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--gap-l);
+}
+
+.buttonContainer {
+	display: flex;
+	column-gap: var(--gap-s);
+}
