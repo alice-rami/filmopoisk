@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--gap-s);
+	align-items: center;
+	background-color: transparent;
+}
+
+.number {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 400;
+}
+
+.numberInactive {
+	color: var(--color-inactive);
+}
+
+.default {
+	fill: none;
+	stroke: var(--color-inactive);
+}
+.selected {
+	fill: var(--color-accent);
+	stroke: var(--color-accent);
+}
+
+.hovered {
+	fill: var(--color-inactive);
+	stroke: var(--color-inactive);
+}

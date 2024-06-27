@@ -1,0 +1,5 @@
+.container {
+	display: flex;
+	column-gap: var(--gap-s);
+	min-width: 112px;
+}
