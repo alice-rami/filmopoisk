@@ -1,0 +1,15 @@
+.inputContainer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-s);
+}
+
+.input {
+	border: 1px solid var(--input-color-border);
+	border-radius: var(--border-radius);
+	padding: 12px;
+}
+
+.required {
+	color: var(--input-color-accent);
+}

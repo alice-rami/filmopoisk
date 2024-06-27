@@ -1,0 +1,16 @@
+.root {
+	border-radius: var(--border-radius);
+	padding: 8px 16px;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.primary {
+	background-color: var(--color-accent);
+	color: var(--white);
+}
+.secondary {
+	border: 1px solid var(--color-accent);
+	background-color: transparent;
+	color: var(--color-accent);
+}

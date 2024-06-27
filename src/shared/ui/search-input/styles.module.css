@@ -1,0 +1,19 @@
+.container {
+	border-radius: var(--border-radius);
+	background-color: var(--white);
+	display: flex;
+	align-items: center;
+	gap: var(--gap-s);
+	padding: 12px;
+	width: 400px;
+	height: 40px;
+	border: 1px solid var(--input-color-border);
+}
+
+input {
+	width: 100%;
+}
+
+.error {
+	border-color: var(--input-color-accent);
+}
