@@ -1,19 +1,19 @@
 @font-face {
 	font-family: 'Roboto';
 	font-weight: 400;
-	src: url('./fonts/Roboto-Regular.ttf');
+	src: url('./shared/fonts/Roboto-Regular.ttf');
 }
 
 @font-face {
 	font-family: 'Roboto';
 	font-weight: 500;
-	src: url('./fonts/Roboto-Medium.ttf');
+	src: url('./shared/fonts/Roboto-Medium.ttf');
 }
 
 @font-face {
 	font-family: 'Roboto';
 	font-weight: 700;
-	src: url('./fonts/Roboto-Bold.ttf');
+	src: url('./shared/fonts/Roboto-Bold.ttf');
 }
 
 :root {
@@ -25,7 +25,7 @@
 	--text-color-main: #1b1f23;
 	--text-color-search: #999fa6;
 	--bg-color-dark: #333333;
-	--bg-color-light: #f8f8f8;
+	--bg-color-light: #e1e3e6;
 	--input-color-accent: #f04075;
 	--input-color-border: #ced2d6;
 	--border-radius: 8px;
