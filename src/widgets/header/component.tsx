@@ -1,13 +1,20 @@
 import { Button } from '../../shared/ui/button/component';
 import styles from './styles.module.css';
 import person_icon from '../../shared/images/person.svg';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../shared/hooks/reduxHooks';
+import { selectUserModule } from '../../redux/login/selectors';
+import { userSliceActions } from '../../redux/login';
 
 export const Header = () => {
-	const isAuthorised = true;
+	const { isAuthorized } = useAppSelector(selectUserModule);
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
+
 	return (
 		<div className={styles.container}>
 			<h1>Фильмопоиск</h1>
-			{isAuthorised ? (
+			{isAuthorized ? (
 				<div className={styles.iconAndButton}>
 					<img
 						src={person_icon}
@@ -16,9 +23,10 @@ export const Header = () => {
 					/>
 					<Button
 						onClick={() => {
-							console.log('Выход');
+							dispatch(userSliceActions.setIsAuthorized(false));
+							localStorage.removeItem('token');
 						}}
-						type='secondary'
+						style='secondary'
 					>
 						Выйти
 					</Button>
@@ -26,7 +34,7 @@ export const Header = () => {
 			) : (
 				<Button
 					onClick={() => {
-						console.log('Вход');
+						navigate('/login');
 					}}
 				>
 					Войти

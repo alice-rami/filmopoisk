@@ -1,23 +1,25 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { NotFoundPage } from './pages/not-found-page/component';
 import { Layout } from './widgets/layout/component';
-import { MoviePage } from './pages/movie/component';
-import { MoviesPage } from './pages/movies/component';
-import { movie } from './shared/mock';
+import { Provider } from 'react-redux';
+import { store } from './redux/index';
+import { MoviesContainer } from './pages/movies/container';
+import { MovieContainer } from './pages/movie/container';
+import { LoginPage } from './pages/login/component';
 
 export const App = () => {
 	return (
-		<BrowserRouter>
-			<Layout>
-				<Routes>
-					<Route
-						index
-						element={<MoviesPage movies={[movie, movie, movie]} />}
-					/>
-					<Route path='/movie:id' element={<MoviePage />} />
-					<Route path='*' element={<NotFoundPage />} />
-				</Routes>
-			</Layout>
-		</BrowserRouter>
+		<Provider store={store}>
+			<BrowserRouter>
+				<Layout>
+					<Routes>
+						<Route index element={<MoviesContainer />} />
+						<Route path='movie/:movieId' element={<MovieContainer />} />
+						<Route path='login' element={<LoginPage />} />
+						<Route path='*' element={<NotFoundPage />} />
+					</Routes>
+				</Layout>
+			</BrowserRouter>
+		</Provider>
 	);
 };

@@ -3,21 +3,24 @@ import styles from './styles.module.css';
 
 type ButtonProps = {
 	children: React.ReactNode;
-	onClick: () => void;
+	onClick?: () => void;
 	className?: string;
-	type?: 'primary' | 'secondary';
+	style?: 'primary' | 'secondary';
+	type?: 'submit' | 'button' | 'reset';
 };
 
 export const Button = ({
 	children,
 	onClick,
 	className,
-	type = 'primary',
+	style = 'primary',
+	type = 'button',
 }: ButtonProps) => {
 	return (
 		<button
-			className={classNames(className, styles.root, styles[type])}
+			className={classNames(className, styles.root, styles[style])}
 			onClick={onClick}
+			type={type}
 		>
 			{children}
 		</button>
