@@ -1,0 +1,25 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-l);
+	padding: 24px;
+}
+
+.poster {
+	width: 400px;
+	height: 500px;
+	border-radius: var(--border-radius);
+}
+
+.card {
+	background-color: var(--white);
+	border-radius: var(--border-radius);
+	display: flex;
+	padding: 24px;
+	gap: var(--gap-l);
+}
+
+.actors {
+	display: flex;
+	column-gap: var(--gap-l);
+}

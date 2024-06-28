@@ -24,15 +24,13 @@
 	display: grid;
 	gap: var(--gap-s);
 	grid-template-columns: 90px 1fr;
-	grid-template-areas:
-		'title title'
-		'genreKey genreValue'
-		'yearKey yearValue'
-		'descriptionKey descriptionValue';
 }
 
 .title {
-	grid-area: title;
+	grid-column: 1 / -1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .genreKey,
@@ -41,24 +39,11 @@
 	color: var(--text-color-secondary);
 }
 
-.genreKey {
-	grid-area: genreKey;
-}
 .genreValue {
-	grid-area: genreValue;
 	text-transform: capitalize;
 }
-.yearKey {
-	grid-area: yearKey;
-}
-.yearValue {
-	grid-area: yearValue;
-}
-.descriptionKey {
-	grid-area: descriptionKey;
-}
+
 .descriptionValue {
-	grid-area: descriptionValue;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
