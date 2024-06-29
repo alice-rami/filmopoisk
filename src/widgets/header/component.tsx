@@ -1,7 +1,7 @@
 import { Button } from '../../shared/ui/button/component';
 import styles from './styles.module.css';
 import person_icon from '../../shared/images/person.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../shared/hooks/reduxHooks';
 import { selectUserModule } from '../../redux/login/selectors';
 import { userSliceActions } from '../../redux/login';
@@ -13,7 +13,9 @@ export const Header = () => {
 
 	return (
 		<div className={styles.container}>
-			<h1>Фильмопоиск</h1>
+			<Link to='/' className={styles.link}>
+				<h1>Фильмопоиск</h1>
+			</Link>
 			{isAuthorized ? (
 				<div className={styles.iconAndButton}>
 					<img

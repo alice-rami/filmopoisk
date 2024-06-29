@@ -10,8 +10,9 @@
 	z-index: 1;
 }
 
-h1 {
+.link {
 	color: var(--white);
+	text-decoration: none;
 }
 
 .icon {

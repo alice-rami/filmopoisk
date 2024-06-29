@@ -1,0 +1,33 @@
+.selectWrapper {
+	position: relative;
+	border: 1px solid var(--input-color-border);
+	border-radius: var(--border-radius);
+	width: 360px;
+	cursor: pointer;
+}
+
+.selectWrapper::after {
+	content: url('../../images/arrow-square-down.svg');
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	pointer-events: none;
+}
+
+.selectWrapper:focus-within {
+	border-color: var(--input-color-accent);
+}
+
+.select {
+	border-radius: var(--border-radius);
+	padding: 10px 16px;
+}
+
+.select * {
+	padding: 12px;
+	background-color: var(--white);
+}
+
+.select option:hover {
+	background-color: var(--select-option-hover);
+}

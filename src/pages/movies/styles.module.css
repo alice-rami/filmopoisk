@@ -1,5 +1,43 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  row-gap: var(--gap-m);
+	display: flex;
+	align-items: flex-start;
+	gap: var(--gap-m);
+	padding: 24px;
+	height: calc(100svh - 88px);
+}
+
+.innerContainer {
+	display: grid;
+	height: calc(100svh - 88px - 48px);
+	grid-template-rows: max-content 1fr max-content;
+	row-gap: var(--gap-m);
+}
+
+.movieList {
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scroll-behavior: smooth;
+	display: flex;
+	flex-direction: column;
+	padding-right: 8px;
+	gap: var(--gap-m);
+}
+
+.notFound {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-s);
+	align-content: center;
+	justify-content: center;
+	width: 100%;
+	flex-grow: 1;
+	text-align: center;
+}
+
+.textActive {
+	font-weight: bold;
+}
+
+.textInactive {
+	color: var(--color-inactive);
 }

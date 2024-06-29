@@ -29,6 +29,7 @@
 	--input-color-accent: #f04075;
 	--input-color-border: #ced2d6;
 	--border-radius: 8px;
+	--select-option-hover: #fafafa;
 	--gap-s: 8px;
 	--gap-m: 16px;
 	--gap-l: 24px;
@@ -45,14 +46,26 @@
 
 body {
 	margin: unset;
+	font-size: 14px;
 }
 
 button,
-input,
-select {
+input {
 	font: inherit;
 	border: none;
 	outline: none;
+}
+
+select {
+	appearance: none;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	cursor: inherit;
+	line-height: inherit;
 }
 
 img,

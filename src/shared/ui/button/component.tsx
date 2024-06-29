@@ -7,6 +7,7 @@ type ButtonProps = {
 	className?: string;
 	style?: 'primary' | 'secondary';
 	type?: 'submit' | 'button' | 'reset';
+	disabled?: boolean;
 };
 
 export const Button = ({
@@ -15,12 +16,14 @@ export const Button = ({
 	className,
 	style = 'primary',
 	type = 'button',
+	disabled = false,
 }: ButtonProps) => {
 	return (
 		<button
 			className={classNames(className, styles.root, styles[style])}
 			onClick={onClick}
 			type={type}
+			disabled={disabled}
 		>
 			{children}
 		</button>

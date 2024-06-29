@@ -12,9 +12,9 @@ export const api = createApi({
 	tagTypes: ['Movie'],
 	baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
 	endpoints: (builder) => ({
-		getMovies: builder.query<AllMoviesResponse, void>({
-			query: () => ({
-				url: 'search',
+		getMovies: builder.query<AllMoviesResponse, string>({
+			query: (searchParams) => ({
+				url: `search${searchParams}`,
 			}),
 		}),
 		getMovieById: builder.query<FullMovieInfo, string>({

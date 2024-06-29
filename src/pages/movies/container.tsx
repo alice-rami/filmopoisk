@@ -3,9 +3,23 @@ import { useGetMoviesQuery } from '../../redux/api';
 import { MoviesPage } from './component';
 import { useAppDispatch } from '../../shared/hooks/reduxHooks';
 import { userSliceActions } from '../../redux/login/index';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { GenresEn, YearKeys } from '../../widgets/filter/config';
+
+type SearchParams = {
+	page?: string;
+	genre?: GenresEn;
+	release_year?: YearKeys;
+	title?: string;
+};
+// type Params = keyof SearchParams;
 
 export const MoviesContainer = () => {
-	const { data, isError, isLoading } = useGetMoviesQuery();
+	const init: SearchParams = {}
+	const [searchParams, setSearchParams] = useSearchParams(init);
+	const location = useLocation();
+	console.log(location.search);
+	const { data, isError, isLoading } = useGetMoviesQuery(location.search);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -16,6 +30,7 @@ export const MoviesContainer = () => {
 			dispatch(userSliceActions.setIsAuthorized(false));
 		}
 		dispatch(userSliceActions.setIsAuthChecked(true));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	if (isLoading) {
@@ -24,8 +39,30 @@ export const MoviesContainer = () => {
 	if (isError) {
 		console.log('error');
 	}
-	if (!data?.search_result || data.search_result.length === 0) {
+
+	if (!data) {
 		return null;
 	}
-	return <MoviesPage movies={data.search_result} />;
+	return (
+		<MoviesPage
+			movies={data.search_result}
+			maxPageCount={data.total_pages}
+			currQuery={searchParams}
+			updateQuery={(newKey: string, newValue: string) => {
+				const params: Record<string, string> = {};
+				setSearchParams((prev) => {
+					if (prev.has(newKey) && newValue.length === 0) {
+						prev.delete(newKey);
+					}
+					prev.forEach((value, key) => {
+						params[key] = value;
+					});
+					if (newValue.length > 0) {
+						params[newKey] = newValue;
+					}
+					return params;
+				});
+			}}
+		/>
+	);
 };

@@ -1,11 +1,11 @@
-import { useState } from 'react';
 import styles from './styles.module.css';
 
-export const SearchInput = () => {
-	const [searchValue, setSearchValue] = useState('');
-	//TODO:
-	//Сделать крестик отдельно или стилизовать его
+type SearchInputProps = {
+	onChange: (key: string, value: string) => void;
+	currTitle?: string | null;
+};
 
+export const SearchInput = ({ onChange, currTitle }: SearchInputProps) => {
 	return (
 		<div className={styles.container}>
 			<span>
@@ -28,9 +28,10 @@ export const SearchInput = () => {
 				type='search'
 				placeholder='Введите название'
 				onChange={(e) => {
-					setSearchValue(e.target.value || '');
+					// setSearchValue(e.target.value || '');
+					onChange('title', e.target.value || '');
 				}}
-				value={searchValue}
+				value={currTitle || ''}
 			/>
 		</div>
 	);
