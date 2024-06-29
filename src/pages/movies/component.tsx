@@ -4,7 +4,7 @@ import { ShortMovieInfo } from '../../shared/types/types';
 import styles from './styles.module.css';
 import { Filter } from '../../widgets/filter/component';
 import { PageCounter } from '../../shared/ui/counter/component';
-import { GenresEn, YearKeys } from 'src/widgets/filter/config';
+import { GenresEn, YearKeys } from '../../widgets/filter/config';
 
 type MoviesPageProps = {
 	movies: ShortMovieInfo[];

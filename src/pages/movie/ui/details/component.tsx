@@ -1,20 +1,23 @@
+import { useAppSelector } from '../../../../shared/hooks/reduxHooks';
 import { ShortMovieInfo } from '../../../../shared/types/types';
 import { Rating } from '../../../../widgets/rating/component';
 import styles from './styles.module.css';
+import { selectUserModule } from '../../../../redux/login/selectors';
 
-type MovieDetailsProps = Omit<ShortMovieInfo, 'id'>;
 export const MovieDetails = ({
+	id,
 	title,
 	genre,
 	release_year,
 	rating,
 	description,
-}: MovieDetailsProps) => {
+}: ShortMovieInfo) => {
+	const { isAuthorized } = useAppSelector(selectUserModule);
 	return (
 		<div className={styles.container}>
 			<div className={styles.titleRating}>
 				<h2>{title}</h2>
-				<Rating value={Math.round(Number.parseFloat(rating))} />
+				{isAuthorized && <Rating movieId={id} />}
 			</div>
 			<p>
 				<span>Жанр: </span>

@@ -4,6 +4,7 @@
 	row-gap: var(--gap-s);
 	align-items: center;
 	background-color: transparent;
+	cursor: pointer;
 }
 
 .number {

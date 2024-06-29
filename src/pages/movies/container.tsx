@@ -15,7 +15,7 @@ type SearchParams = {
 // type Params = keyof SearchParams;
 
 export const MoviesContainer = () => {
-	const init: SearchParams = {}
+	const init: SearchParams = {};
 	const [searchParams, setSearchParams] = useSearchParams(init);
 	const location = useLocation();
 	console.log(location.search);
@@ -45,7 +45,7 @@ export const MoviesContainer = () => {
 	}
 	return (
 		<MoviesPage
-			movies={data.search_result}
+			movies={Object.values(data.entities)}
 			maxPageCount={data.total_pages}
 			currQuery={searchParams}
 			updateQuery={(newKey: string, newValue: string) => {

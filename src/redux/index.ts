@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { userQuerySlice } from './ui/user-query';
 import { api } from './api';
 import { userSlice } from './login';
 import { modalSlice } from './ui/modal';
+import { userRatingSlice } from './ui/user-rating';
 
 export const store = configureStore({
 	reducer: {
-		userQuery: userQuerySlice.reducer,
 		user: userSlice.reducer,
 		modal: modalSlice.reducer,
+		userRating: userRatingSlice.reducer,
 		[api.reducerPath]: api.reducer,
 	},
 	devTools: true,

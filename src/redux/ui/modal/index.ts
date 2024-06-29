@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { loginThunk } from '../../../redux/login/thunks/loginThunk';
 
 type InitialState = {
 	isVisible: boolean;

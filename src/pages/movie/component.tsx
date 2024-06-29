@@ -8,13 +8,22 @@ type MoviePageProps = {
 };
 
 export const MoviePage = ({ movie }: MoviePageProps) => {
-	const { title, description, release_year, poster, genre, rating, actors } =
-		movie;
+	const {
+		id,
+		title,
+		description,
+		release_year,
+		poster,
+		genre,
+		rating,
+		actors,
+	} = movie;
 	return (
 		<div className={styles.container}>
 			<div className={styles.card}>
 				<img src={poster} alt='Постер' className={styles.poster} />
 				<MovieDetails
+					id={id}
 					title={title}
 					description={description}
 					release_year={release_year}

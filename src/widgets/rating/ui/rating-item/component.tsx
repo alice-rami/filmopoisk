@@ -10,17 +10,24 @@ type RatingItemProps = {
 			value?: number;
 		}>
 	>;
+	onClick: (num: number) => void;
 };
 
-export const RatingItem = ({ num, type, setHover }: RatingItemProps) => {
+export const RatingItem = ({
+	num,
+	type,
+	setHover,
+	onClick,
+}: RatingItemProps) => {
 	if (!num) {
 		return null;
 	}
 	return (
 		<button
 			className={styles.container}
-			onClick={() => {
-				console.log('hello');
+			onClick={(event) => {
+				event.stopPropagation();
+				onClick(num);
 			}}
 			onMouseOver={() => setHover({ isHovered: true, value: num })}
 			onMouseOut={() => setHover({ isHovered: false })}
