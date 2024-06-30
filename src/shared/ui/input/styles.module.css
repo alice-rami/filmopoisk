@@ -10,6 +10,10 @@
 	padding: 12px;
 }
 
+.input:focus-within {
+	border: 1px solid var(--color-accent);
+}
+
 .required {
 	color: var(--input-color-accent);
 }

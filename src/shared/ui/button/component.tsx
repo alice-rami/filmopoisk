@@ -20,7 +20,9 @@ export const Button = ({
 }: ButtonProps) => {
 	return (
 		<button
-			className={classNames(className, styles.root, styles[style])}
+			className={classNames(className, styles.root, styles[style], {
+				[styles.disabled]: disabled,
+			})}
 			onClick={onClick}
 			type={type}
 			disabled={disabled}

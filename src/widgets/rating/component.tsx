@@ -38,7 +38,6 @@ export const Rating = ({ movieId }: RatingProps) => {
 		if (newValue) {
 			dispatch(userRatingActions.setRating({ id: movieId, value: newValue }));
 			rateMovie({ movieId: movieId, user_rate: newValue });
-			console.log(newValue);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [deboucedValue]);
