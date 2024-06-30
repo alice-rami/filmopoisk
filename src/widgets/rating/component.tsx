@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RatingItem } from './ui/rating-item/component';
 import styles from './styles.module.css';
 import { updateStatus } from './utils';
@@ -21,9 +21,35 @@ export const Rating = ({ movieId }: RatingProps) => {
 	const [hover, setHover] = useState<{ isHovered: boolean; value?: number }>({
 		isHovered: false,
 	});
+	const [newValue, setNewValue] = useState(userRating);
+	const [deboucedValue, setDebouncedValue] = useState(userRating);
+
+	useEffect(() => {
+		const handler = setTimeout(() => {
+			setDebouncedValue(newValue);
+		}, 1000);
+
+		return () => {
+			clearTimeout(handler);
+		};
+	}, [newValue]);
+
+	useEffect(() => {
+		if (newValue) {
+			dispatch(userRatingActions.setRating({ id: movieId, value: newValue }));
+			rateMovie({ movieId: movieId, user_rate: newValue });
+			console.log(newValue);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [deboucedValue]);
 
 	return (
-		<div className={styles.container}>
+		<div
+			className={styles.container}
+			onClick={(evt) => {
+				evt.stopPropagation();
+			}}
+		>
 			{(hover.isHovered
 				? updateStatus(hover.value || 0, 'hovered')
 				: updateStatus(userRating || 0, 'selected')
@@ -34,10 +60,7 @@ export const Rating = ({ movieId }: RatingProps) => {
 					num={index + 1}
 					setHover={setHover}
 					onClick={(ratingValue: number) => {
-						dispatch(
-							userRatingActions.setRating({ id: movieId, value: ratingValue })
-						);
-						rateMovie({ movieId: movieId, user_rate: ratingValue });
+						setNewValue(ratingValue);
 					}}
 				/>
 			))}

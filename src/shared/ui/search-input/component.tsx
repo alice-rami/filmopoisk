@@ -24,7 +24,8 @@ export const SearchInput = memo(function SearchInput({
 	}, [searchValue]);
 
 	useEffect(() => {
-		onChange('title', deboucedValue);
+		onChange('title', searchValue);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [deboucedValue]);
 
 	return (

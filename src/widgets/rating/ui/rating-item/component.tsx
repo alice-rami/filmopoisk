@@ -25,8 +25,7 @@ export const RatingItem = ({
 	return (
 		<button
 			className={styles.container}
-			onClick={(event) => {
-				event.stopPropagation();
+			onClick={() => {
 				onClick(num);
 			}}
 			onMouseOver={() => setHover({ isHovered: true, value: num })}

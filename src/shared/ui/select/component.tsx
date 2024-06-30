@@ -29,7 +29,6 @@ export const Select = ({
 		};
 		const onClick = (evt: Event) => {
 			evt.stopPropagation();
-			console.log('click');
 			if (isVisible) {
 				setIsVisible(false);
 			}
