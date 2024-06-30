@@ -3,7 +3,7 @@ import { SearchInput } from '../../shared/ui/search-input/component';
 import { ShortMovieInfo } from '../../shared/types/types';
 import styles from './styles.module.css';
 import { Filter } from '../../widgets/filter/component';
-import { PageCounter } from '../../shared/ui/counter/component';
+import { PageCounter } from '../../shared/ui/page-counter/component';
 import { GenresEn, YearKeys } from '../../widgets/filter/config';
 
 type MoviesPageProps = {

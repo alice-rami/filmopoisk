@@ -18,7 +18,6 @@ export const MoviesContainer = () => {
 	const init: SearchParams = {};
 	const [searchParams, setSearchParams] = useSearchParams(init);
 	const location = useLocation();
-	console.log(location.search);
 	const { data, isError, isLoading } = useGetMoviesQuery(location.search);
 	const dispatch = useAppDispatch();
 
@@ -33,6 +32,22 @@ export const MoviesContainer = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	const updateQuery = (newKey: string, newValue: string) => {
+		const params: Record<string, string> = {};
+		setSearchParams((prev) => {
+			if (prev.has(newKey) && newValue.length === 0) {
+				prev.delete(newKey);
+			}
+			prev.forEach((value, key) => {
+				params[key] = value;
+			});
+			if (newValue.length > 0) {
+				params[newKey] = newValue;
+			}
+			return params;
+		});
+	};
+
 	if (isLoading) {
 		return <p>Loading...</p>;
 	}
@@ -41,28 +56,14 @@ export const MoviesContainer = () => {
 	}
 
 	if (!data) {
-		return null;
+		return <div>Что-то пошло не так</div>;
 	}
 	return (
 		<MoviesPage
 			movies={Object.values(data.entities)}
 			maxPageCount={data.total_pages}
 			currQuery={searchParams}
-			updateQuery={(newKey: string, newValue: string) => {
-				const params: Record<string, string> = {};
-				setSearchParams((prev) => {
-					if (prev.has(newKey) && newValue.length === 0) {
-						prev.delete(newKey);
-					}
-					prev.forEach((value, key) => {
-						params[key] = value;
-					});
-					if (newValue.length > 0) {
-						params[newKey] = newValue;
-					}
-					return params;
-				});
-			}}
+			updateQuery={updateQuery}
 		/>
 	);
 };

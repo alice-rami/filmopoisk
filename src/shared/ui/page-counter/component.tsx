@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { Button } from '../button/component';
 import styles from './styles.module.css';
 
 type PageCounterProps = {
@@ -15,36 +14,25 @@ export const PageCounter = ({
 }: PageCounterProps) => {
 	return (
 		<div className={styles.container}>
-			<Button
+			<button
 				onClick={() => onChange('page', `${currPage - 1 || 1}`)}
-				disabled={currPage >= maxPageCount}
-			>
-				<span
-					className={classNames({
-						[styles.disabled]: currPage === 1,
-					})}
-				>
-					prev
-				</span>
-			</Button>
+				disabled={currPage === 1}
+				className={classNames(styles.icon, styles.iconLeft, {
+					[styles.disabled]: currPage < 2,
+				})}
+			/>
 			<span className={styles.value}>{currPage}</span>
-			<Button
+			<button
+				className={classNames(styles.icon, {
+					[styles.disabled]: currPage >= maxPageCount,
+				})}
 				onClick={() =>
 					onChange(
 						'page',
 						`${currPage < maxPageCount ? currPage + 1 : maxPageCount}`
 					)
 				}
-				disabled={currPage >= maxPageCount}
-			>
-				<span
-					className={classNames({
-						[styles.disabled]: currPage === maxPageCount,
-					})}
-				>
-					next
-				</span>
-			</Button>
+			/>
 		</div>
 	);
 };

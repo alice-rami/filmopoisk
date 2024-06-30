@@ -14,12 +14,19 @@
 	cursor: pointer;
 }
 
-.selectWrapper::after {
-	content: url('../../images/arrow-square-down.svg');
+.arrow {
+	display: block;
+	background-image: url('../../images/arrow-square-down.svg');
 	position: absolute;
 	right: 8px;
 	top: 8px;
 	pointer-events: none;
+	width: 20px;
+	height: 20px;
+}
+
+.upArrow {
+	transform: rotate(180deg);
 }
 
 .active {
