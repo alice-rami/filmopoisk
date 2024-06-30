@@ -1,6 +1,6 @@
 import { FullMovieInfo } from '../../shared/types/types';
 import styles from './style.module.css';
-import { ActorCard } from './ui/actor/component';
+import { ActorCarousel } from './ui/carousel/component';
 import { MovieDetails } from './ui/details/component';
 
 type MoviePageProps = {
@@ -33,11 +33,7 @@ export const MoviePage = ({ movie }: MoviePageProps) => {
 				/>
 			</div>
 			<h3>Актёры</h3>
-			<div className={styles.actors}>
-				{actors.map(({ name, photo }, index) => (
-					<ActorCard name={name} photo={photo} key={index} />
-				))}
-			</div>
+			<ActorCarousel actors={actors} />
 		</div>
 	);
 };

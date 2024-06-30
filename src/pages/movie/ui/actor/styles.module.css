@@ -3,10 +3,17 @@
 	flex-direction: column;
 	row-gap: var(--gap-m);
 	font-size: 14px;
+	width: 160px;
 }
 
 .photo {
 	width: 160px;
 	height: 228.57px;
+	min-height: 228.57px;
 	border-radius: var(--border-radius);
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+	text-indent: 100%;
+	object-fit: cover;
 }
