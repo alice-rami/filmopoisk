@@ -1,0 +1,22 @@
+.container {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--gap-m);
+	padding: 24px;
+	height: calc(100svh - 88px);
+}
+
+.innerContainer {
+	display: grid;
+	height: calc(100svh - 88px - 48px);
+	grid-template-rows: max-content 1fr max-content;
+	row-gap: var(--gap-m);
+}
+
+.textActive {
+	font-weight: bold;
+}
+
+.textInactive {
+	color: var(--color-inactive);
+}
