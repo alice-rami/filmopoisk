@@ -1,4 +1,4 @@
-import { Actor } from 'src/shared/types/types';
+import { Actor } from '../../../../shared/types/types';
 import { ActorCard } from '../actor/component';
 import styles from './styles.module.css';
 import classNames from 'classnames';
